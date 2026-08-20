@@ -22,17 +22,24 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.3'
+          extensions: mbstring, pdo_mysql
 
-      - name: Check if composer.json exists
-        id: check_files
-        uses: andstor/file-existence-action@v1
-        with:
-          files: 'composer.json'
+      - name: Install PHP dependencies
+        run: composer validate --no-check-publish && composer install --no-dev --prefer-dist --no-progress --optimize-autoloader
 
-      - name: Run composer install if composer.json exists
-        if: steps.check_files.outputs.files_exists == 'true'
-        run: composer validate --no-check-publish && composer install --prefer-dist --no-progress
+      - name: Build frontend assets
+        run: npm ci && npm run build
 
+      - name: Prepare Laravel runtime folders
+        run: |
+          mkdir -p storage/framework/cache/data
+          mkdir -p storage/framework/sessions
+          mkdir -p storage/framework/views
+          mkdir -p storage/logs
+          touch storage/framework/cache/data/.gitignore
+          touch storage/framework/sessions/.gitignore
+          touch storage/framework/views/.gitignore
+          touch storage/logs/.gitignore
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4

@@ -107,6 +107,10 @@ DB_HOST=your-mysql-server.mysql.database.azure.com
 DB_DATABASE=mental_health_chatbox
 DB_USERNAME=your_mysql_username
 DB_PASSWORD=your_mysql_password
+MYSQL_ATTR_SSL_CA=/etc/ssl/certs/ca-certificates.crt
+CACHE_STORE=file
+SESSION_DRIVER=file
+QUEUE_CONNECTION=sync
 DEEPSEEK_API_KEY=your_deepseek_key
 GOOGLE_CLIENT_ID=your_google_client_id
 GOOGLE_CLIENT_SECRET=your_google_client_secret
@@ -143,6 +147,7 @@ Run:
 
 ```bash
 cd /home/site/wwwroot
+mkdir -p storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs
 php artisan migrate --force
 php artisan storage:link
 php artisan config:cache
@@ -209,7 +214,13 @@ If database connection fails:
 
 - Check `DB_HOST`, `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD`.
 - Check MySQL firewall/networking.
+- If Azure MySQL requires secure transport, set `MYSQL_ATTR_SSL_CA=/etc/ssl/certs/ca-certificates.crt`.
 - Run migrations from App Service SSH.
+
+If `php artisan cache:clear` fails because the `cache` table is missing:
+
+- Set `CACHE_STORE=file` in App Service environment variables.
+- Restart the App Service and run `php artisan config:clear`.
 
 If Google Sign-In fails:
 
