@@ -58,6 +58,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/chat/{session}', [ChatController::class, 'show'])->name('chat.show');
 
+    Route::get('/chat/{session}/send', fn ($session) => redirect()->route('chat.show', $session));
+
     Route::post('/chat/{session}/send', [ChatController::class, 'sendMessage'])->name('chat.send');
 
 });
