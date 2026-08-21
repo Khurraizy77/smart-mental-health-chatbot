@@ -92,6 +92,11 @@
                         Mood Tracking
                     </a>
 
+                    <a href="{{ route('about') }}" class="btn btn-wb-outline">
+                        <i class="bi bi-info-circle me-2"></i>
+                        About Us
+                    </a>
+
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button type="submit" class="btn btn-wb-danger w-100">
@@ -99,6 +104,10 @@
                             Logout
                         </button>
                     </form>
+
+                    <p class="small wb-muted text-center mb-0 mt-2">
+                        &copy; {{ date('Y') }} Khurraizy Khuzainol
+                    </p>
                 </div>
             </div>
         </aside>

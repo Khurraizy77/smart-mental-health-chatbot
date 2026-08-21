@@ -25,6 +25,8 @@ Route::get('/', function () {
         : redirect()->route('student.dashboard');
 });
 
+Route::view('/about', 'about')->name('about');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::get('/mood', [MoodController::class, 'index']);

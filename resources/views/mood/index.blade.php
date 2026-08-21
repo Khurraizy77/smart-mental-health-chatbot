@@ -41,6 +41,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="/mood">Mood Tracking</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -207,6 +210,8 @@
         </div>
     </div>
 </main>
+
+@include('components.site-footer')
 
 <script>
 const ctx = document.getElementById('moodChart');

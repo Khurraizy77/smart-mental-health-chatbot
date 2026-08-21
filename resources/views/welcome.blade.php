@@ -42,6 +42,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/mood">Mood Tracking</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                </li>
                 @auth
                     <li class="nav-item ms-lg-2">
                         <a class="btn btn-wb-primary btn-sm" href="/chat">Open Support Chat</a>
@@ -130,6 +133,8 @@
         </div>
     </div>
 </section>
+
+@include('components.site-footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

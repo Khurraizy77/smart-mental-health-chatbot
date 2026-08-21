@@ -47,6 +47,9 @@
                     <a class="nav-link" href="{{ route('wellbeing.guide') }}">Guide</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/profile">Profile</a>
                 </li>
                 <li class="nav-item ms-lg-2">
@@ -406,6 +409,8 @@
         </div>
     </div>
 </main>
+
+@include('components.site-footer')
 
 <script>
 const ctx = document.getElementById('moodChart');

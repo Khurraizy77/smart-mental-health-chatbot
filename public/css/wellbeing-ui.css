@@ -160,6 +160,12 @@ a.wb-brand:not(:has(.wb-chat-logo))::before {
     animation: wbSoftFloat 5.5s ease-in-out infinite;
 }
 
+.wb-about-logo {
+    width: min(100%, 18rem);
+    height: auto;
+    filter: drop-shadow(0 14px 24px rgba(36, 49, 45, 0.12));
+}
+
 .wb-nav .nav-link {
     color: var(--wb-muted);
     font-weight: 600;
@@ -918,6 +924,33 @@ a.wb-brand:not(:has(.wb-chat-logo))::before {
     margin-bottom: 0.8rem;
 }
 
+.wb-site-footer {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--wb-border);
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--wb-muted);
+    font-size: 0.92rem;
+}
+
+.wb-site-footer strong {
+    color: var(--wb-ink);
+}
+
+.wb-site-footer a {
+    color: var(--wb-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.wb-site-footer a:hover {
+    color: var(--wb-primary-dark);
+    text-decoration: underline;
+}
+
+.wb-footer-separator::before {
+    content: " · ";
+}
+
 .row.g-4 > [class*="col-"]:nth-child(1) .wb-card,
 .row.g-4 > [class*="col-"]:nth-child(1) .wb-panel {
     animation: wbFadeUp 520ms var(--wb-ease) 60ms both;
@@ -1114,6 +1147,10 @@ a.wb-brand:not(:has(.wb-chat-logo))::before {
 
     .wb-message-wrap {
         max-width: 90%;
+    }
+
+    .wb-footer-separator::before {
+        content: "";
     }
 
     .wb-chat-header {

@@ -44,6 +44,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/mood">Mood Tracking</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                        </li>
                     @elseif(Auth::user()->role === 'admin')
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('admin.dashboard') }}">Admin</a>
@@ -54,10 +57,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/mood">Mood Tracking</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                        </li>
                     @endif
                 @else
                     <li class="nav-item">
                         <a class="nav-link" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('about') }}">About Us</a>
                     </li>
                 @endauth
 
@@ -91,6 +100,8 @@
 <main class="container py-5">
     @yield('content')
 </main>
+
+@include('components.site-footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

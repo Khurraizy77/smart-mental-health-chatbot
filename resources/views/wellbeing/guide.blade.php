@@ -43,6 +43,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('wellbeing.guide') }}">Guide</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                </li>
                 @if(Auth::user()->role === 'student')
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('counseling.index') }}">Counselling</a>
@@ -207,6 +210,8 @@
         </div>
     </div>
 </main>
+
+@include('components.site-footer')
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 

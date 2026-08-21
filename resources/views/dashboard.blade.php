@@ -44,6 +44,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('wellbeing.guide') }}">Guide</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">About Us</a>
+                </li>
                 @if(Auth::user()->role === 'admin')
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/dashboard">Admin</a>
@@ -512,6 +515,8 @@
         </div>
     </div>
 </main>
+
+@include('components.site-footer')
 
 <script>
 const findHospitalsButton = document.getElementById('find-hospitals-button');
